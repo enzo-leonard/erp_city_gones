@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ErpCityGones</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <div class="nav-bar">
+      <div class="brand">City Gone</div>
+      <div class="nav-menu">
+        <a href="/">Home</a>
+        <a href="/contacts">contacts</a>
+        <a href="/projets">projets</a>
+        <a href="/commissions">commissions</a>
+        <a href="/sae">sae</a>
+        <a href="/factures">factures</a>
+        <a href="/statistiques">statistiques</a>
+      </div>
+    </div>
+    <%= yield %>
+
+  </body>
+
+</html>

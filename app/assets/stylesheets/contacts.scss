@@ -1,0 +1,156 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// Yo u can use Sass (SCSS) here: http://sass-lang.com/
+$bg :#F1F1F1;
+$dark-blue: #23374d;
+$blue :#1089ff;
+$grey: #e5e5e5;
+$light-grey: #eeeeee;
+$dark-grey : #696464;
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $bg;
+  margin: 0px;
+  padding: 0px;
+  color: $dark-grey;
+  font-size : 14px;
+  font-weight: 500;
+ }
+
+a:hover, a {
+  text-decoration: none;
+ }
+
+
+.nav-bar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding : 25px 15px;
+  position: sticky;
+  top: 0px;
+  box-shadow: 0px 5px 26px -2px #dce5ec;
+  z-index: 2;
+}
+
+.brand {
+  color: $dark-grey;
+  flex-grow: 1;
+  font-size: 36px;
+  padding-left: 30px;
+  font-weight: bolder;
+}
+
+.nav-menu {
+  text-align: right;
+}
+
+.nav-menu a {
+  padding : 0px 10px;
+  color: $dark-grey;
+  font-size : 20px;
+}
+
+
+.view {
+  display: flex;
+    justify-content: space-between;
+  margin: 0px auto;
+  width: 85%;
+
+}
+
+.col-1{
+  padding: 15px;
+  padding-bottom: 500px;
+}
+
+.col-2{
+  height: 100vh;
+  position: sticky;
+  top: 140px;
+  margin-top: 100px;
+
+}
+
+.contact-card-mini {
+  box-shadow: 0px 5px 26px -2px $grey;
+  width: 1000px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+
+.filtre-zone {
+  position: sticky;
+  top: 20px;
+  padding: 15px 0px;
+  background-color: $bg;
+  z-index: 1;
+}
+
+
+.filtre {
+  box-shadow: 0px 5px 26px -2px $grey;
+  width: 1000px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 10px;
+
+}
+
+.card-edit-contact {
+  box-shadow: 0px 5px 26px -2px $grey;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px;
+  height: 750px;
+  width : 400px;
+}
+
+h2 {
+  font-weight: bolder;
+  color: $dark-grey;
+  font-size: 32px;
+}
+
+#filter-entite, #filter-nom {
+  width: 20%;
+}
+
+#filter-dep, #filter-cp {
+  width: 5%;
+}
+
+#filter-type, #filter-mandant, #filter-ville {
+  width: 10%;
+}
+
+input {
+  padding: 8px 10px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  margin-right: 5px;
+  background-color: $bg;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.card-edit-contact input {
+  margin-bottom: 10px;
+  width : 95%;
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display : none;
+}
+
