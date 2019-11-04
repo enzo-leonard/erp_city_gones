@@ -12,22 +12,25 @@
         <%= text_field_tag :dep, params[:dep], class: "input w-5", placeholder: "dep" %>
         <%= text_field_tag :cp, params[:cp], class: "input w-7", placeholder: "cp" %>
         <%= text_field_tag :mandant, params[:mandant], class: "input w-7", placeholder: "mandant" %>
-        <%= text_field_tag :order, params[:order], class: "input w-7", value: "", placeholder: "order" %>
+        <%= select_tag  :order, raw("<option>id</option><option>nb_habitant</option>") , class: 'w-10'%>
+        <%# <%= text_field_tag :order, params[:order], class: "input w-7", value: "", placeholder: "order" %>
         <%= submit_tag "Search", class: "w-10" %>
       <% end %>
     </div>
     </div>
 
-
-    <h2> <b><%=@contacts.size%></b> contacts trouvés</h2>
-    <%@contacts.each do |contact| %>
+    Requete sql : select * where <%=@sql%>
+    <%i=0%>
+    <h2> <b><%=@nb%></b> contacts trouvés</h2>
+    <%@contacts.each do |contact| %> <%i+=1%>
     <div id=<%="card-"+contact.id.to_s%> class="contact-card-mini">
-      <div class="output w-20"> <%= contact.entite %></div>
+      <div class="output w-20"> <%= contact.id %></div>
       <div class="output w-15"> <%= contact.nom %></div>
       <div class="output w-10"> <%= contact.type_ %></div>
       <div class="output w-15"> <%= contact.ville %></div>
       <div class="output w-5"> <%= contact.nb_departement %></div>
       <div class="output w-7"> <%= contact.cp %></div>
+      <div class="output w-7"> <%= contact.nb_habitant %></div>
       
     </div>
     <%end%>

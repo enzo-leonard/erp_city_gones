@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TO DO CONTACT
 
-Things you may want to cover:
+* Parser commentaire en dur 
 
-* Ruby version
+* Refaire shema avec les bonnes valeurs
 
-* System dependencies
+* Ergonomie 
 
-* Configuration
+* Animation card 
 
-* Database creation
+* Parser classe commentaire
 
-* Database initialization
+* 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+TO DO PROJET
 
-* Deployment instructions
+* Structure de la base de donnée 
 
-* ...
+* Parser le fichier excel 

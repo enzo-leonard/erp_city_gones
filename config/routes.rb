@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'contacts', to: 'contacts#index'
   resources :contacts
   post 'contact/:id', to: 'contacts#update'
-  root to: 'pages#home'
+  root to: 'contacts#index'
 end

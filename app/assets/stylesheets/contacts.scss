@@ -24,6 +24,7 @@ $bgg: linear-gradient(180deg, rgba(255,237,218,1) 0%, rgba(255,246,222,1) 100%);
 body {
   font-family: 'Poppins', sans-serif;
   background: $bgg;
+  background-attachment: fixed;
   padding: 0px;
   color: $dark-grey;
   color: $red-font;
@@ -83,7 +84,7 @@ a:hover, a {
 
 .col-1{
   padding: 15px;
-  padding-bottom: 500px;
+  padding-bottom: 1000px;
 }
 
 .col-2{
@@ -155,6 +156,18 @@ input {
   color: $red-font;
 }
 
+select {
+  padding: 8px 10px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: $bgg;
+  border-radius: 3px;
+  font-size: 18px;
+  color: $red-font;
+}
+
 textarea {
   padding: 8px 10px;
   font-family: 'Poppins', sans-serif;
@@ -168,12 +181,12 @@ textarea {
 
 }
 
-input:not(:placeholder-shown) {
+input:not(:placeholder-shown), select:not(:placeholder-shown)  {
   background-color: $yellow3 ;
   color: #5b0909;
 }
 
-input:placeholder-shown {
+input:placeholder-shown, select:placeholder-shown, {
     background-color: $bg;
     color: $red-font;
 }
