@@ -19,12 +19,12 @@
     </div>
     </div>
 
-    Requete sql : select * where <%=@sql%>
+    <%=@sql%>
     <%i=0%>
     <h2> <b><%=@nb%></b> contacts trouvés</h2>
     <%@contacts.each do |contact| %> <%i+=1%>
     <div id=<%="card-"+contact.id.to_s%> class="contact-card-mini">
-      <div class="output w-20"> <%= contact.id %></div>
+      <div class="output w-20"> <%= contact.entite %></div>
       <div class="output w-15"> <%= contact.nom %></div>
       <div class="output w-10"> <%= contact.type_ %></div>
       <div class="output w-15"> <%= contact.ville %></div>

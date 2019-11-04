@@ -1,6 +1,6 @@
 # README
 
-TO DO CONTACT
+##TO DO CONTACT
 
 * Parser commentaire en dur 
 
@@ -15,7 +15,7 @@ TO DO CONTACT
 * 
 
 
-TO DO PROJET
+##TO DO PROJET
 
 * Structure de la base de donnée 
 

@@ -1,28 +1,28 @@
 class ContactsController < ApplicationController
 
   def index
-    if params[:cp] != '' || params[:entite] != '' || params[:nom] != '' || params[:type] != '' || params[:ville] != '' || params[:dep] != ''
+    if params[:cp].present? || params[:entite].present? || params[:nom].present? || params[:type].present? || params[:ville].present? || params[:dep].present? || params[:order].present?
       sql =  'contacts.id not null '
       sql += "and contacts.cp = #{params[:cp]} " if params[:cp].present?
-      sql += "and contacts.entite LIKE '#{'%'+params[:entite].to_s+'%'}' " if params[:entite] != ''
-      sql += "and contacts.nom LIKE '#{'%'+params[:nom].to_s+'%'}' " if params[:nom] != ''
-      sql += "and contacts.type_ LIKE '#{'%'+params[:type].to_s+'%'}' " if params[:type] != ''
-      sql += "and contacts.ville LIKE '#{'%'+params[:ville].to_s+'%'}' " if params[:ville] != ''
-      sql += "and contacts.nb_departement LIKE '#{ '%'+params[:dep].to_s+'%'}' " if params[:dep] != ''
+      sql += "and contacts.entite LIKE '#{'%'+params[:entite].to_s+'%'}' " if params[:entite].present?
+      sql += "and contacts.nom LIKE '#{'%'+params[:nom].to_s+'%'}' " if params[:nom].present?
+      sql += "and contacts.type_ LIKE '#{'%'+params[:type].to_s+'%'}' " if params[:type].present?
+      sql += "and contacts.ville LIKE '#{'%'+params[:ville].to_s+'%'}' " if params[:ville].present?
+      sql += "and contacts.nb_departement LIKE '#{ '%'+params[:dep].to_s+'%'}' " if params[:dep].present?
       params[:order].present? ?  order = 'contacts.'+params[:order].to_s+' DESC' : order = 'contacts.id DESC'
 
-      if params[:mandant] != ''
-        sql += "and commentaires.mandant LIKE '#{ '%'+params[:mandant].to_s+'%'}' "if params[:mandant] != ''
-        @sql = 'avec mandant : '+sql
+      if params[:mandant].present?
+        sql += "and commentaires.mandant LIKE '#{ '%'+params[:mandant].to_s+'%'}' "if params[:mandant].present?
+        @sql = 'requete sql avec mandant : select * where '+sql+'\order by'+order
         @nb =  Contact.joins(:commentaires).where(sql).count(:id)
         @contacts = Contact.joins(:commentaires).where(sql).order(order).limit(500)
       else 
-        @sql = sql
+        @sql = 'requete sql : select * where '+sql+'\order by'+order
         @nb =  Contact.where(sql).count(:id)
         @contacts = Contact.where(sql).order(order).limit(500)
       end
    else
-      @sql = 'rien'
+      @sql = 'pas de requete sql'
       @nb = Contact.count(:id)
       @contacts = Contact.all.limit(500)
       

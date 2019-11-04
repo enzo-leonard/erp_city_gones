@@ -1,7 +1,7 @@
 class CreateContacts < ActiveRecord::Migration[5.2]
   def change
       create_table :contacts do |t|
-      t.string :nb_departement
+      t.integer :nb_departement
       t.string :type_
       t.string :type_plus
       t.string :entite
@@ -13,7 +13,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :adresse
       t.string :cp
       t.string :ville
-      t.string :nb_habitant
+      t.integer :nb_habitant
       t.string :commentaire
       t.string :site
       t.string :projet?
