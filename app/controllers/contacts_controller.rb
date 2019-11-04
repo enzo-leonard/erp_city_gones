@@ -1,8 +1,28 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
+    if params[:cp].present? || params[:entite]
+      sql = 'contacts.id = contacts.id '
+      sql += "and contacts.cp = #{params[:cp]} " if params[:cp].present?
+      sql += "and contacts.entite LIKE '#{'%'+params[:entite].to_s+'%'}' " if params[:entite].present?
+      sql += "and contacts.nom LIKE '#{'%'+params[:nom].to_s+'%'}' " if params[:nom].present?
+      sql += "and contacts.type_ LIKE '#{'%'+params[:type].to_s+'%'}' " if params[:type].present?
+      sql += "and contacts.ville LIKE '#{'%'+params[:ville].to_s+'%'}' " if params[:ville].present?
+      sql += "and contacts.nb_departement LIKE '#{ '%'+params[:dep].to_s+'%'}' " if params[:dep].present?
+      sql += "and commentaires.mandant LIKE '#{ '%'+params[:mandant].to_s+'%'}' "if params[:mandant].present?
+      params[:order].present? ?  order = 'contacts.'+params[:order].to_s+' DESC' : order = 'contacts.id DESC'
+   
+      puts sql;
+      @contacts = Contact.joins(:commentaires).where(sql).order(order).limit(500)
+      else
+      @contacts = Contact.all.limit(500)
+    end
     @contact_new = Contact.new
+    @filtre = params
+  end
+
+  def find_by_mandant
+    
   end
 
   # def new

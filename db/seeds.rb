@@ -34,7 +34,7 @@ CSV.foreach("db/files/contact.csv", csv_options) do |item|
         commentaire:            item["action divers"],
         site:                   item["Site Web"],
      }
-
+     #commentaire = Commentaire.new(input: item["action divers"])
      contact = Contact.new(arg_contact)
      mandant_name = ['ATECT', 'OKATENT', 'CYRIA DIVERS', 'Ultra Crite','QUARTZO DIVERS', 'SAE DIVERS,BO ou jeux DIVERS', 'CARACOL Divers', 'vert bleu', 'SAE', 'Vert Bleu2', 'STRAB Ferradix']
      mandant_name.each do |mandant|

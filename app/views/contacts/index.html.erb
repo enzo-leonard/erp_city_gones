@@ -4,19 +4,31 @@
     <div class="filtre-zone">
     <h2>Filtres</h2>
     <div class="filtre">
-      <input id=filter-entite type="text" placeholder="entite">
-      <input id=filter-nom type="text" placeholder="nom">
-      <input id=filter-type type="text" placeholder="type">
-      <input id=filter-mandant type="text" placeholder="mandant">
-      <input id=filter-ville type="text" placeholder="ville">
-      <input id=filter-dep type="text" placeholder="dep">
-      <input id=filter-cp type="text" placeholder="cp">
+      <%= form_tag contacts_path, method: :get do %>
+        <%= text_field_tag :entite, params[:entite], class: "input w-20", placeholder: "entite" %>
+        <%= text_field_tag :nom, params[:nom], class: "input w-15", placeholder: "nom" %>
+        <%= text_field_tag :type, params[:type], class: "input w-10", placeholder: "type" %>
+        <%= text_field_tag :ville, params[:ville], class: "input w-15", placeholder: "ville" %>
+        <%= text_field_tag :dep, params[:dep], class: "input w-5", placeholder: "dep" %>
+        <%= text_field_tag :cp, params[:cp], class: "input w-7", placeholder: "cp" %>
+        <%= text_field_tag :mandant, params[:mandant], class: "input w-7", placeholder: "mandant" %>
+        <%= text_field_tag :order, params[:order], class: "input w-7", value: "", placeholder: "order" %>
+        <%= submit_tag "Search", class: "w-10" %>
+      <% end %>
     </div>
     </div>
+
+
     <h2> <b><%=@contacts.size%></b> contacts trouvés</h2>
     <%@contacts.each do |contact| %>
     <div id=<%="card-"+contact.id.to_s%> class="contact-card-mini">
-      <%= contact.entite %>
+      <div class="output w-20"> <%= contact.entite %></div>
+      <div class="output w-15"> <%= contact.nom %></div>
+      <div class="output w-10"> <%= contact.type_ %></div>
+      <div class="output w-15"> <%= contact.ville %></div>
+      <div class="output w-5"> <%= contact.nb_departement %></div>
+      <div class="output w-7"> <%= contact.cp %></div>
+      
     </div>
     <%end%>
   </div>
@@ -39,7 +51,9 @@
           <input id=site type="text" placeholder="site"value=<%=contact.site%>>
           <input id=fixe type="text" placeholder="fixe"value=<%=contact.fixe%>>
           <input id=tel type="text" placeholder="tel"value=<%=contact.portable%>>
-          <input id=commentaire type="text" placeholder="commentaire"value=<%=contact.commentaire%>>
+            <% html = ""%>
+            <% contact.commentaires.all.each { |com| html+= "#{com.mandant} : #{com.input}\n" }%>
+          <textArea id=commentaire placeholder="commentaire" > <%=html%> </textArea>
           <input id=submit type="submit">
         </form>
       </div>
@@ -61,7 +75,7 @@
         <input id=fixe type="text" placeholder="fixe">
         <input id=tel type="text" placeholder="tel">
         <input id=commentaire type="text" placeholder="commentaire">
-        <input id=submit type="submit" value="Creer contacts">
+        <input id=submit type="submit" class="w-95" value="Creer contacts">
       </form>
       </div>
   </div>
