@@ -33,6 +33,17 @@ body {
   margin: 0px;
  }
 
+
+
+.line{
+  display: flex;
+  flex-wrap: wrap;
+
+  input{
+    width: 30%;
+  }
+}
+
 a:hover, a {
   text-decoration: none;
  }
@@ -86,7 +97,7 @@ a:hover, a {
   padding: 15px;
   padding-bottom: 1000px;
   width: 70%;
-  border: 1px solid red;
+
 }
 
 .col-2{
@@ -98,9 +109,11 @@ a:hover, a {
   display: flex;
   align-content: center;
   justify-content: center;
-  border: 1px solid;
+
 
 }
+
+
 
 .contact-card-mini {
   display: flex;

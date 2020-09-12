@@ -43,17 +43,21 @@
         <form action=<%="/contact/"+contact.id.to_s%> method="POST">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <input id=entite type="text"  name=contact[entite] placeholder="entite" value=<%=contact.entite%>>
-          <input id=cp type="text"  name=contact[cp] placeholder="cp" value=<%=contact.cp%>>
-          <input id=nom type="text" placeholder="nom"value=<%=contact.nom%>>
-          <input id=type type="text" placeholder="type"value=<%=contact.type_%>>
-          <input id=ville type="text" placeholder="ville"value=<%=contact.ville%>>
-          <input id=dep type="text" placeholder="dep"value=<%=contact.nb_departement%>>
-          <input id=fonction type="text" placeholder="fonction"value=<%=contact.fonction%>>
-          <input id=adresse type="text" placeholder="adresse"value=<%=contact.adresse%>>
-          <input id=mail type="text" placeholder="mail"value=<%=contact.email%>>
-          <input id=site type="text" placeholder="site"value=<%=contact.site%>>
-          <input id=fixe type="text" placeholder="fixe"value=<%=contact.fixe%>>
-          <input id=tel type="text" placeholder="tel"value=<%=contact.portable%>>
+          <input id=nom type="text" placeholder="nom" value=<%=contact.nom%>>
+          <input id=type type="text" placeholder="type" value=<%=contact.type_%>>
+          <hr>
+          <div class="line">
+            <input  id=ville type="text" placeholder="ville" value=<%=contact.ville%>>
+            <input style="width: 20%" id=dep type="text" placeholder="dep" value=<%=contact.nb_departement%>>
+            <input style="width: 25%" id=cp type="text"  name=contact[cp] placeholder="cp" value=<%=contact.cp%>>
+          </div>
+          <input id=adresse type="text" placeholder="adresse" value=<%=contact.adresse%>>
+          <input id=fonction type="text" placeholder="fonction" value=<%=contact.fonction%>>
+        
+          <input id=mail type="text" placeholder="mail" value=<%=contact.email%>>
+          <input id=site type="text" placeholder="site" value=<%=contact.site%>>
+          <input id=fixe type="text" placeholder="fixe" value=<%=contact.fixe%>>
+          <input id=tel type="text" placeholder="tel" value=<%=contact.portable%>>
             <% html = ""%>
             <% contact.commentaires.all.each { |com| html+= "#{com.mandant} : #{com.input}\n" }%>
           <textArea id=commentaire placeholder="commentaire" > <%=html%> </textArea>
@@ -66,11 +70,13 @@
       <form action="/contacts" method="POST">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <input id=entite type="text" name=contact[entite] placeholder="entite">
-        <input id=cp type="text" name=contact[cp] placeholder="cp">
         <input id=nom type="text" placeholder="nom">
         <input id=type type="text" placeholder="type" >
-        <input id=ville type="text" placeholder="ville">
-        <input id=dep type="text" placeholder="dep">
+        <div class="line">
+          <input id=ville type="text" placeholder="ville">
+          <input style="width: 50%" id=dep type="text" placeholder="dep">
+          <input style="width: 32%" id=cp type="text" name=contact[cp] placeholder="cp">
+        </div>
         <input id=fonction type="text" placeholder="fonction">
         <input id=adresse type="text" placeholder="adresse">
         <input id=mail type="text" placeholder="mail">
