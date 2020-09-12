@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_150503) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "nb_departement"
+    t.integer "nb_departement"
     t.string "type_"
     t.string "type_plus"
     t.string "entite"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_150503) do
     t.string "adresse"
     t.string "cp"
     t.string "ville"
-    t.string "nb_habitant"
+    t.integer "nb_habitant"
     t.string "commentaire"
     t.string "site"
     t.string "projet?"
